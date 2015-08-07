@@ -52,7 +52,8 @@ namespace TeeTimer
         {
             //Console.WriteLine(delta);
             //Console.WriteLine(sender.Time);
-            try {
+            try
+            {
                 Invoke((MethodInvoker)(() =>
                 {
                     foreach (DataGridViewRow row in table.Rows)
@@ -62,7 +63,7 @@ namespace TeeTimer
                     }
                 }));
             }
-            catch(Exception e) { }
+            catch (Exception) { }
         }
 
         private void table_MouseDown(object sender, MouseEventArgs e)
