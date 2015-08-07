@@ -10,16 +10,20 @@ namespace TeeTimer
     class Timer
     {
         public delegate void OnTimerFinishHandler(Timer sender);
+        public delegate void OnTimerTickHandler(Timer sender, TimeSpan delta);
 
         public event OnTimerFinishHandler TimerFinished;
+        public event OnTimerTickHandler TimerTick;
 
         private string _name;
         private TimeSpan _time;
+        private bool _paused;
+        private bool _running;
 
         private Thread thr;
-        DateTime last;
+        private DateTime last;
 
-        public string name {
+        public string Name {
             get{
                 return _name;
             }
@@ -29,7 +33,7 @@ namespace TeeTimer
             }
         }
 
-        public TimeSpan time
+        public TimeSpan Time
         {
             get
             {
@@ -41,35 +45,83 @@ namespace TeeTimer
             }
         }
 
+        public bool Paused
+        {
+            get { return _paused; }
+            set
+            {
+                last = DateTime.Now;
+                _paused = value;
+            }
+        }
+
         public Timer(string name, TimeSpan time)
         {
             _name = name;
             _time = time;
-            Thread thr = new Thread(Run);
+            thr = new Thread(Run);
+            thr.IsBackground = true;
             thr.Priority = ThreadPriority.Lowest;
         }
 
         public void Start()
         {
-            if(thr.ThreadState != ThreadState.Running)
+            if (thr.ThreadState != ThreadState.Running)
+            {
+                last = DateTime.Now;
+                _running = true;
                 thr.Start();
+            }
+        }
+
+        public void Stop()
+        {
+            _running = false;
         }
 
         private void Run()
         {
-            while (_time.TotalSeconds > double.Epsilon)
+            while (_time.TotalSeconds > double.Epsilon && _running)
             {
-                if (last == null)
+                if (Paused)
                 {
-                    last = DateTime.Now;
+                    Thread.Sleep(250);
                     continue;
                 }
+                TimeSpan ts = DateTime.Now - last;
+                _time -= ts;
+                last = DateTime.Now;
+                if (_time.TotalSeconds <= double.Epsilon || !_running)
+                    break;
+                TimerTick.Invoke(this, ts);
+                Thread.Sleep(500);
+            }
+            _time = TimeSpan.Zero;
+            if (_running)
+            {
+                TimerTick.Invoke(this, TimeSpan.Zero);
+                TimerFinished.Invoke(this);
             }
         }
 
         public override string ToString()
         {
-            return name;
+            return Name;
+        }
+
+        public string TimeString()
+        {
+            StringBuilder ret = new StringBuilder();
+            TimeSpan ts = Time;
+            if (ts.Days > 0)
+                ret.AppendFormat("{0} days ", ts.Days);
+            if (ts.Hours > 0)
+                ret.AppendFormat("{0} h ", ts.Hours);
+            if (ts.Minutes > 0)
+                ret.AppendFormat("{0} min ", ts.Minutes);
+            if (ts.Seconds > 0 || ret.Length == 0)
+                ret.AppendFormat("{0} sec ", ts.Seconds);
+            return ret.ToString(0, ret.Length - 1);
         }
     }
 }

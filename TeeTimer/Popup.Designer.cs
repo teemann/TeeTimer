@@ -44,12 +44,12 @@
             this.panel1.Controls.Add(this.pMain);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(296, 158);
+            this.panel1.Size = new System.Drawing.Size(296, 130);
             this.panel1.TabIndex = 0;
             // 
             // btOK
             // 
-            this.btOK.Location = new System.Drawing.Point(12, 123);
+            this.btOK.Location = new System.Drawing.Point(12, 94);
             this.btOK.Name = "btOK";
             this.btOK.Size = new System.Drawing.Size(272, 23);
             this.btOK.TabIndex = 4;
@@ -63,12 +63,13 @@
             this.pMain.Controls.Add(this.lbTim);
             this.pMain.Location = new System.Drawing.Point(12, 12);
             this.pMain.Name = "pMain";
-            this.pMain.Size = new System.Drawing.Size(272, 100);
+            this.pMain.Size = new System.Drawing.Size(272, 76);
             this.pMain.TabIndex = 3;
             // 
             // lbDesc
             // 
             this.lbDesc.AutoSize = true;
+            this.lbDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDesc.Location = new System.Drawing.Point(99, 47);
             this.lbDesc.Name = "lbDesc";
             this.lbDesc.Size = new System.Drawing.Size(80, 13);
@@ -90,7 +91,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 158);
+            this.ClientSize = new System.Drawing.Size(296, 130);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;

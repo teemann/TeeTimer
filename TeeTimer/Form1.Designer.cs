@@ -73,7 +73,7 @@
             this.pauseToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 92);
             // 
             // addToolStripMenuItem
             // 
@@ -83,7 +83,7 @@
             this.minToolStripMenuItem1,
             this.customToolStripMenuItem});
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addToolStripMenuItem.Text = "Add";
             // 
             // hToolStripMenuItem
@@ -91,30 +91,35 @@
             this.hToolStripMenuItem.Name = "hToolStripMenuItem";
             this.hToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.hToolStripMenuItem.Text = "1 h";
+            this.hToolStripMenuItem.Click += new System.EventHandler(this.hToolStripMenuItem_Click);
             // 
             // minToolStripMenuItem
             // 
             this.minToolStripMenuItem.Name = "minToolStripMenuItem";
             this.minToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.minToolStripMenuItem.Text = "30 min";
+            this.minToolStripMenuItem.Click += new System.EventHandler(this.min30ToolStripMenuItem_Click);
             // 
             // minToolStripMenuItem1
             // 
             this.minToolStripMenuItem1.Name = "minToolStripMenuItem1";
             this.minToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.minToolStripMenuItem1.Text = "10 min";
+            this.minToolStripMenuItem1.Click += new System.EventHandler(this.min10ToolStripMenuItem1_Click);
             // 
             // customToolStripMenuItem
             // 
             this.customToolStripMenuItem.Name = "customToolStripMenuItem";
             this.customToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.customToolStripMenuItem.Text = "Custom...";
+            this.customToolStripMenuItem.Click += new System.EventHandler(this.customToolStripMenuItem_Click);
             // 
             // pauseToolStripMenuItem
             // 
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.pauseToolStripMenuItem.Text = "Pause";
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.pauseToolStripMenuItem.Text = "Toggle";
+            this.pauseToolStripMenuItem.Click += new System.EventHandler(this.pauseToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
