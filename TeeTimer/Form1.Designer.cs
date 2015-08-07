@@ -40,8 +40,20 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTimer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tray = new System.Windows.Forms.NotifyIcon(this.components);
+            this.trayContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showOverviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.hToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.minToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.minToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.customToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            this.trayContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // table
@@ -73,7 +85,7 @@
             this.pauseToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(111, 70);
             // 
             // addToolStripMenuItem
             // 
@@ -83,7 +95,7 @@
             this.minToolStripMenuItem1,
             this.customToolStripMenuItem});
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.addToolStripMenuItem.Text = "Add";
             // 
             // hToolStripMenuItem
@@ -124,7 +136,7 @@
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -141,6 +153,83 @@
             this.colTimer.Name = "colTimer";
             this.colTimer.ReadOnly = true;
             // 
+            // tray
+            // 
+            this.tray.ContextMenuStrip = this.trayContextMenu;
+            this.tray.Text = "TeeTimer";
+            this.tray.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tray_MouseDoubleClick);
+            // 
+            // trayContextMenu
+            // 
+            this.trayContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showOverviewToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.addToolStripMenuItem1,
+            this.toolStripSeparator2,
+            this.exitToolStripMenuItem});
+            this.trayContextMenu.Name = "trayContextMenu";
+            this.trayContextMenu.Size = new System.Drawing.Size(164, 82);
+            // 
+            // showOverviewToolStripMenuItem
+            // 
+            this.showOverviewToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.showOverviewToolStripMenuItem.Name = "showOverviewToolStripMenuItem";
+            this.showOverviewToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.showOverviewToolStripMenuItem.Text = "Show Overview";
+            this.showOverviewToolStripMenuItem.Click += new System.EventHandler(this.showOverviewToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(160, 6);
+            // 
+            // addToolStripMenuItem1
+            // 
+            this.addToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hToolStripMenuItem1,
+            this.minToolStripMenuItem2,
+            this.minToolStripMenuItem3,
+            this.customToolStripMenuItem1});
+            this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
+            this.addToolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
+            this.addToolStripMenuItem1.Text = "Add";
+            // 
+            // hToolStripMenuItem1
+            // 
+            this.hToolStripMenuItem1.Name = "hToolStripMenuItem1";
+            this.hToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.hToolStripMenuItem1.Text = "1 h";
+            // 
+            // minToolStripMenuItem2
+            // 
+            this.minToolStripMenuItem2.Name = "minToolStripMenuItem2";
+            this.minToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.minToolStripMenuItem2.Text = "30 min";
+            // 
+            // minToolStripMenuItem3
+            // 
+            this.minToolStripMenuItem3.Name = "minToolStripMenuItem3";
+            this.minToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.minToolStripMenuItem3.Text = "10 min";
+            // 
+            // customToolStripMenuItem1
+            // 
+            this.customToolStripMenuItem1.Name = "customToolStripMenuItem1";
+            this.customToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.customToolStripMenuItem1.Text = "Custom...";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(160, 6);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,8 +238,10 @@
             this.Controls.Add(this.table);
             this.Name = "Form1";
             this.Text = "TeeTimer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.trayContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -168,6 +259,17 @@
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTimer;
+        private System.Windows.Forms.NotifyIcon tray;
+        private System.Windows.Forms.ContextMenuStrip trayContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem showOverviewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem hToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem minToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem minToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem customToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 

@@ -15,6 +15,12 @@ namespace TeeTimer
         public Form1()
         {
             InitializeComponent();
+            tray.Icon = Icon;
+            hToolStripMenuItem1.Click += hToolStripMenuItem_Click;
+            minToolStripMenuItem2.Click += min30ToolStripMenuItem_Click;
+            minToolStripMenuItem3.Click += min10ToolStripMenuItem1_Click;
+            customToolStripMenuItem1.Click += customToolStripMenuItem_Click;
+
             //table.Rows.Add("Test", "1:20:05");
             /*Timer t = new Timer("Hallo, das ist ein TestHallo, das ist ein TestHallo, das ist iii", TimeSpan.FromSeconds(15));
             t.TimerTick += T_TimerTick;
@@ -135,6 +141,33 @@ namespace TeeTimer
         {
             AddTimer a = new AddTimer(this, TimeSpan.FromMinutes(10));
             a.ShowDialog();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                tray.Visible = true;
+                Visible = false;
+            }
+        }
+
+        private void showOverviewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Visible = true;
+            tray.Visible = false;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void tray_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Visible = true;
+            tray.Visible = false;
         }
     }
 }
