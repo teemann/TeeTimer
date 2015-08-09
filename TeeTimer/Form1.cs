@@ -56,11 +56,22 @@ namespace TeeTimer
             {
                 Invoke((MethodInvoker)(() =>
                 {
+                    TimeSpan shortest = TimeSpan.MaxValue;
+                    Timer sTim = null;
                     foreach (DataGridViewRow row in table.Rows)
                     {
-                        object val = row.Cells[0].Value;
-                        row.Cells[1].Value = (val as Timer).TimeString();
+                        Timer val = row.Cells[0].Value as Timer;
+                        row.Cells[1].Value = val.TimeString();
+                        if (val.Time < shortest)
+                        {
+                            shortest = val.Time;
+                            sTim = val;
+                        }
                     }
+                    if (sTim != null)
+                        tray.Text = sTim.Name + ": " + sTim.TimeString();
+                    else
+                        tray.Text = "TeeTimer";
                 }));
             }
             catch (Exception) { }
